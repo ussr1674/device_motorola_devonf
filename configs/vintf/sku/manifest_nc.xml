@@ -92,8 +92,4 @@
         </interface>
         <fqname>@2.0::INxpNfc/default</fqname>
     </hal>
-    <hal format="hidl">
-        <name>vendor.nxp.nxpnfclegacy</name>
-        <transport>hwbinder</transport>
-    </hal>
 </manifest>
