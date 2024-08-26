@@ -1,3 +1,5 @@
+ktd3136_bl.ko
+ocp2138.ko
 mkp.ko
 bootprof.ko
 sc8551_mmi.ko
@@ -60,12 +62,8 @@ cmdq-platform-mt6855.ko
 cmdq_helper_inf.ko
 mtk-mml.ko
 leds_aw99703.ko
-sm5350_bl.ko
-sm5109c.ko
 mtk_panel_ext.ko
-dsi-panel-mot-tm-nt36672c-650-fhdp-dphy-vdo-120hz.ko
-dsi-panel-mot-txd-ili7807s-650-fhdp-dphy-vdo-120hz.ko
-dsi-panel-mot-csot-ft8725-650-fhdp-dphy-vdo-120hz.ko
+dsi-panel-mot-tianma-nt36672c-649-fhdp-dphy-vdo-120hz.ko
 dsi-panel-mot-dummy-vdo-60hz.ko
 mediatek-drm.ko
 aee_rs.ko
@@ -133,7 +131,6 @@ mtk_charger_framework.ko
 rt_pd_manager.ko
 mt6375-battery.ko
 mt6359p_battery.ko
-wt6670f_qc3p.ko
 pwm-mtk-disp.ko
 leds-mtk.ko
 leds-mtk-disp.ko

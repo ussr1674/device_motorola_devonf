@@ -1,9 +1,6 @@
 on early-init
     insmod /vendor/lib/modules/sensors_class.ko
     insmod /vendor/lib/modules/sx937x_sar.ko
-    insmod /vendor/lib/modules/bq25980_mmi.ko
-    insmod /vendor/lib/modules/mmi_decrete_charger_cp_qc3p.ko
-    insmod /vendor/lib/modules/moto_mmap_fault.ko
     exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules qpnp_adaptive_charge leds-gpio pn557
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -r -d /vendor/lib/modules zram
 
@@ -28,12 +25,6 @@ on post-fs-data
     chown input input /data/vendor/touchrec/touch_data.txt
     chmod 0664 /data/vendor/touchrec/touch_data.txt
 
-service vendor.modem-rfs-sh /vendor/bin/init.mmi.modem-rfs.sh loop 600
-    class late_start
-    user root
-    group log system radio
-    oneshot
-
 on late-init
     #moto algo params
     chmod 0660 /sys/bus/platform/drivers/mtk_nanohub/algo_params
@@ -56,22 +47,6 @@ on early-boot
     chown system system /sys/devices/platform/soc/112b0000.ufshci/manual_gc
     chown system system /sys/devices/platform/soc/112b0000.ufshci/ufshid/trigger
 
-on property:ro.vendor.hw.nfc=ese_nq
-   insmod /vendor/lib/modules/nxp_i2c.ko
-   insmod /vendor/lib/modules/nxp_ese.ko
-   wait /dev/nq-nci
-   chown nfc nfc /dev/nq-nci
-   chmod 0666 /dev/nq-nci
-   wait /dev/p73
-   chown secure_element secure_element /dev/p73
-   chmod 0666 /dev/p73
-
-on property:ro.vendor.hw.nfc=samsung
-   insmod /vendor/lib/modules/sec_nfc.ko
-   wait /dev/sec-nfc
-   chown nfc nfc /dev/sec-nfc
-   chmod 0770 /dev/sec-nfc
-
 on boot
    write /sys/class/i2c-dev/i2c-9/device/9-0030/wireless_fw_update 1
    # Set wls perms for HAL
@@ -92,11 +67,6 @@ on boot
    chmod 0660 /sys/class/capsense/int_state
    chmod 0660 /sys/class/capsense/reg
    chmod 0660 /sys/class/capsense/fw_download_status
-
-   # change dir permission
-   mkdir /data/vendor/camera_dump
-   chown root camera /data/vendor/camera_dump
-   chmod 0770 /data/vendor/camera_dump
 
   # Change ownership and permission for cp-standalone factory testing
   chown system system /sys/class/power_supply/cp-standalone/voltage_now
@@ -119,19 +89,21 @@ on boot
     write /sys/block/sdc/queue/scheduler bfq
     write /sys/block/sdc/queue/iosched/slice_idle 0
 
-    write /proc/sys/vm/dirty_background_bytes 26214400
-    write /proc/sys/vm/dirty_bytes 104857600
 on fs
-   exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules mmi_relay nova_0flash_mmi_v2 focaltech_0flash_mmi_v2 ilitek_v3_mmi
+   exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules mmi_relay nova_0flash_mmi_v2
 
 # camera eeprom calibration
 on property:sys.boot_completed=1
-  chmod 0644 /data/vendor/camera_dump/mot_gt24p128f_ov50d_eeprom.bin
-  chmod 0644 /data/vendor/camera_dump/mot_gt24p128f_s5kjns_eeprom.bin
+  chmod 0644 /data/vendor/camera_dump/mot_gt24p128f_ov50a_eeprom.bin
   chmod 0644 /data/vendor/camera_dump/serial_number_main.bin
   chmod 0644 /data/vendor/camera_dump/mot_gt24p64ba2_hi1634q_eeprom.bin
-  chmod 0644 /data/vendor/camera_dump/mot_gt24p64ba2_s5k3p9sp04_eeprom.bin
   chmod 0644 /data/vendor/camera_dump/serial_number_front.bin
-  chmod 0644 /data/vendor/camera_dump/mot_cancunf_s5k4h7_otp.bin
+  chmod 0644 /data/vendor/camera_dump/mot_devonf_s5k4h7_eeprom.bin
   chmod 0644 /data/vendor/camera_dump/serial_number_wide.bin
-  chmod 0644 /data/vendor/camera_dump/mot_cancunf_sc202acs_otp.bin
+
+# NFC driver
+on property:ro.vendor.hw.nfc=nxp
+   insmod /vendor/lib/modules/nxp_i2c.ko
+   wait /dev/nq-nci
+   chown nfc nfc /dev/nq-nci
+   chmod 0666 /dev/nq-nci

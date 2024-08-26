@@ -5,8 +5,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/motorola/cancunf
-KERNEL_PATH := device/motorola/cancunf-kernel
+DEVICE_PATH := device/motorola/devonf
+KERNEL_PATH := device/motorola/devonf-kernel
 
 # Architecture
 TARGET_ARCH := arm64
@@ -24,7 +24,7 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := cancunf
+TARGET_BOOTLOADER_BOARD_NAME := devonf
 TARGET_NO_BOOTLOADER := true
 
 # Display
@@ -62,7 +62,7 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 
 TARGET_NO_KERNEL_OVERRIDE := true
-TARGET_KERNEL_SOURCE := device/motorola/cancunf-kernel/kernel-headers
+TARGET_KERNEL_SOURCE := device/motorola/devonf-kernel/kernel-headers
 
 LOCAL_KERNEL := $(KERNEL_PATH)/$(BOARD_KERNEL_IMAGE_NAME)
 PRODUCT_COPY_FILES += \
@@ -150,7 +150,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2024-07-01
+VENDOR_SECURITY_PATCH := 2024-08-01
 
 # Sepolicy
 include device/mediatek/sepolicy_vndr/SEPolicy.mk
@@ -159,13 +159,15 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 
 # SKU
-ODM_MANIFEST_SKUS += b d de dn e n
+ODM_MANIFEST_SKUS += b bc d dc dn dnc n nc
 ODM_MANIFEST_B_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_b.xml
+ODM_MANIFEST_BC_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_bc.xml
 ODM_MANIFEST_D_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_d.xml
-ODM_MANIFEST_DE_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_de.xml
+ODM_MANIFEST_DC_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_dc.xml
 ODM_MANIFEST_DN_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_dn.xml
-ODM_MANIFEST_E_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_e.xml
+ODM_MANIFEST_DNC_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_dnc.xml
 ODM_MANIFEST_N_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_n.xml
+ODM_MANIFEST_NC_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_nc.xml
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -186,7 +188,7 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
 
 # Inherit the proprietary files
-include vendor/motorola/cancunf/BoardConfigVendor.mk
+include vendor/motorola/devonf/BoardConfigVendor.mk
 
 # Wifi
 WPA_SUPPLICANT_VERSION := VER_0_8_X

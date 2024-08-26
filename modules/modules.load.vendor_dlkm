@@ -112,7 +112,7 @@ hf_manager.ko
 sensorhub.ko
 sspm_v3.ko
 mtk-composite.ko
-flashlights-cancunf-pwm.ko
+flashlights-devonf-pwm.ko
 flashlight.ko
 mainaf.ko
 main2af.ko

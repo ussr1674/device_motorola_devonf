@@ -252,7 +252,7 @@ PRODUCT_PACKAGES += \
 
 # Light
 PRODUCT_PACKAGES += \
-    android.hardware.lights-service.cancunf
+    android.hardware.lights-service.devonf
 
 # Media
 PRODUCT_PACKAGES += \
@@ -296,7 +296,7 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc-service.nxp
+    android.hardware.nfc@1.2-service
 
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
@@ -313,45 +313,23 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hcef.xml \
     frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.uicc.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml
-
-DEVICE_UNAVAIL_NFC_SKUS := b d
-DEVICE_NFC_SKUS := de e
-
-PRODUCT_COPY_FILES += \
-$(foreach DEVICE_SKU, $(DEVICE_UNAVAIL_NFC_SKUS), \
-    $(LOCAL_PATH)/configs/permissions/unavail.android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.nfc.hce.xml \
-    $(LOCAL_PATH)/configs/permissions/unavail.android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.nfc.hcef.xml \
-    $(LOCAL_PATH)/configs/permissions/unavail.android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.nfc.uicc.xml \
-    $(LOCAL_PATH)/configs/permissions/unavail.android.hardware.nfc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.nfc.xml)
-
-PRODUCT_COPY_FILES += \
-$(foreach DEVICE_NFC_SKU, $(DEVICE_NFC_SKUS), \
-    frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_NFC_SKU)/android.hardware.nfc.ese.xml \
-    frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_NFC_SKU)/android.hardware.se.omapi.ese.xml)
+    frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml
 
 # Overlay
 PRODUCT_PACKAGES += \
-    ApertureOverlayCancunf \
-    BesLoudnessOverlayCancunf \
-    CarrierConfigOverlayCancunf \
-    EsimOverlayCancunf \
-    FrameworksResOverlayCancunf \
-    FrameworksResOverlayCancunfXT2343-1 \
-    FrameworksResOverlayCancunfXT2343-2 \
-    NfcResOverlayCancunf \
-    PowerOffAlarmOverlayCancunf \
-    SettingsLibOverlayCancunf \
-    SettingsOverlayCancunf \
-    SettingsProviderOverlayCancunf \
-    SettingsProviderOverlayCancunpXT2431-1 \
-    SettingsProviderOverlayCancunpXT2431-3 \
-    SystemUIOverlayCancunf \
-    TelephonyOverlayCancunf \
-    TetheringConfigResOverlayCancunf \
-    WifiResOverlayCancunf \
-    WifiResOverlayCancunpXT2431-1 \
-    WifiResOverlayCancunpXT2431-3
+    ApertureOverlayDevonf \
+    BesLoudnessOverlayDevonf \
+    CarrierConfigOverlayDevonf \
+    FrameworksResOverlayDevonf \
+    PowerOffAlarmOverlayDevonf \
+    SettingsLibOverlayDevonf \
+    SettingsOverlayDevonf \
+    SettingsProviderOverlayDevonf \
+    SystemUIOverlayDevonf \
+    TelephonyOverlayDevonf \
+    TetheringConfigResOverlayDevonf \
+    WifiResOverlayDevonf
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -445,7 +423,6 @@ PRODUCT_PACKAGES += \
     fstab.mt6855.vendor_ramdisk \
     init_connectivity.rc \
     init.connectivity.common.rc \
-    init.cancunf.sku.rc \
     init.mmi.chipset.rc \
     init.mmi.overlay.rc \
     init.mmi.rc \
@@ -549,4 +526,4 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/motorola/cancunf/cancunf-vendor.mk)
+$(call inherit-product, vendor/motorola/devonf/devonf-vendor.mk)

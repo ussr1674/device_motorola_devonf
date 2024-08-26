@@ -11,7 +11,6 @@ ro.audio.monitorRotation=true
 ro.config.media_vol_default=10
 ro.config.vc_call_vol_default=4
 ro.config.vc_call_vol_steps=11
-ro.vendor.audio.moto_sst_supported=true
 ro.vendor.mtk_audio_alac_support=1
 ro.vendor.mtk_audio_ape_support=1
 ro.vendor.mtk_audio_tuning_tool_ver=V1
@@ -91,16 +90,13 @@ debug.sf.earlyGl.app.duration=20000000
 debug.sf.earlyGl.sf.duration=27600000
 debug.sf.enable_hwc_vds=0
 debug.sf.force_populate_color_modes=true
-debug.sf.frame_rate_multiple_threshold=120
 debug.sf.high_fps_early_gl_phase_offset_ns=-12666667
 debug.sf.high_fps_early_phase_offset_ns=-12666667
 debug.sf.high_fps_late_app_phase_offset_ns=-8000000
 debug.sf.high_fps_late_sf_phase_offset_ns=-12666667
-debug.sf.hwc.min.duration=23000000
 debug.sf.latch_unsignaled=1
 debug.sf.late.app.duration=20000000
 debug.sf.late.sf.duration=27600000
-debug.sf.region_sampling_period_ns=1000000000
 debug.sf.scroll_boost_refreshrate=120
 debug.sf.touch_boost_refreshrate=90
 debug.sf.treat_170m_as_sRGB=1
@@ -142,7 +138,6 @@ vendor.debug.sf.cpupolicy.upbound_uclamp_min=400
 vendor.debug.sf.cpupolicy.upbound_uclamp_ret_sys=218
 vendor.debug.sf.cpupolicy.xgf_min=25
 vendor.hw.sf.IdleLazyResetThresholdT=500
-vendor.hw.sf.hwc.min.duration=23000000
 vendor.media.heif.highThreshold=20
 
 # Dolby
@@ -202,7 +197,7 @@ ro.vendor.mtk_nn_baseline_support=1
 ro.vendor.mtk_nn_quant_preferred=1
 
 # NFC
-persist.vendor.nfc.config_secfile_name=libnfc-sec-nci.conf
+ro.hardware.nfc_nci=pn54x
 persist.vendor.nfc.reset_after_sim_plug_in=true
 
 # Partition
@@ -237,7 +232,7 @@ ro.vendor.pq.mtk_disp_ccorr_support=1
 ro.vendor.pq.mtk_disp_color_support=1
 ro.vendor.pq.mtk_disp_game_pq_support=0
 ro.vendor.pq.mtk_disp_gamma_support=0
-ro.vendor.pq.mtk_disp_tdshp_support=1
+ro.vendor.pq.mtk_disp_tdshp_support=0
 ro.vendor.pq.mtk_dre30_support=0
 ro.vendor.pq.mtk_ds_support=0
 ro.vendor.pq.mtk_hdr10_plus_recording_support=0
@@ -309,6 +304,7 @@ ro.vendor.mtk_ps1_rat=N/Lf/Lt/W/G
 ro.vendor.mtk_ril_mode=c6m_1rild
 ro.vendor.mtk_rild_read_imsi=1
 ro.vendor.mtk_sec_video_path_support=1
+ro.vendor.mtk_sim_hot_swap_common_slot=1
 ro.vendor.mtk_sim_card_onoff=3
 ro.vendor.mtk_single_bin_modem_support=1
 ro.vendor.mtk_uicc_clf=1
@@ -328,7 +324,6 @@ ro.vendor.hw.fps=true
 ro.vendor.mag.calibration.in.sensorhub=yes
 ro.vendor.mtk.sensor.support=yes
 ro.vendor.sensors.mot_ltv=true
-ro.vendor.sensors.prox_for_call=true
 
 # TEE
 ro.mtk_key_manager_support=1

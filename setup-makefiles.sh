@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=cancunf
+DEVICE=devonf
 VENDOR=motorola
 
 # Load extract_utils and do some sanity checks
