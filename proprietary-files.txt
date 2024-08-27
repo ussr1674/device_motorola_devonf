@@ -1342,6 +1342,11 @@ vendor/firmware/txpowerctrl.cfg
 vendor/firmware/valhall-1691526.wa
 vendor/firmware/wifi.cfg
 
+# Firmware (recovery)
+vendor/firmware/NT36xxx_MP_Setting_Criteria_6057.csv:recovery/root/vendor/firmware/NT36xxx_MP_Setting_Criteria_6057.csv
+vendor/firmware/novatek_ts_fw.bin:recovery/root/vendor/firmware/novatek_ts_fw.bin
+vendor/firmware/novatek_ts_mp.bin:recovery/root/vendor/firmware/novatek_ts_mp.bin
+
 # GPS
 -vendor/bin/hw/android.hardware.gnss-service.mediatek
 -vendor/bin/mnld
