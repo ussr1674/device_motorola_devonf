@@ -1819,7 +1819,6 @@ vendor/etc/nnapi_powerhal.json
 -vendor/bin/hw/android.hardware.secure_element@1.2-service-mediatek
 -vendor/bin/pnscr
 -vendor/bin/pnscr_cal
-vendor/etc/init/android.hardware.nfc@1.2-service.rc:vendor/etc/init/android.hardware.nfc@1.2-service-moto.rc
 vendor/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc
 vendor/etc/libnfc-nci.conf
 vendor/etc/libnfc-nci_100.conf
