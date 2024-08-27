@@ -9,6 +9,8 @@ allow hal_fingerprint_default self:netlink_kobject_uevent_socket { create setopt
 allow hal_fingerprint_default hal_fingerprint_default:binder { call transfer };
 allow hal_fingerprint_default fingerprint_device:chr_file { open read write ioctl getattr };
 allow hal_fingerprint_default persist_data_file:dir search;
+allow hal_fingerprint_default vendor_sysfs_fingerprint:file rw_file_perms;
+allow hal_fingerprint_default vendor_sysfs_fingerprint:dir r_dir_perms;
 set_prop(hal_fingerprint_default, vendor_mot_prop)
 vndbinder_use(hal_fingerprint_default)
 hwbinder_use(hal_fingerprint_default)
