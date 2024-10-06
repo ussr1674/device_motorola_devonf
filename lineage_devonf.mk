@@ -12,14 +12,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/motorola/devonf/device.mk)
 
 # Inherit some common PixelOS stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
 
-PRODUCT_NAME := aosp_devonf
+PRODUCT_NAME := lineage_devonf
 PRODUCT_DEVICE := devonf
 PRODUCT_MANUFACTURER := motorola
 PRODUCT_BRAND := motorola
 PRODUCT_MODEL := moto g73 5G 
+
+# Matrixx flags
+MATRIXX_BUILD_TYPE := Unofficial
+MATRIXX_CHIPSET := mt6855
+MATRIXX_BATTERY := 5000 mAh
+MATRIXX_DISPLAY := 2400 x 1080
+MATRIXX_MAINTAINER := Soviet 
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
